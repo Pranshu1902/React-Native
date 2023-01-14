@@ -9,6 +9,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -42,7 +43,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function Home(): JSX.Element {
+export function Home({navigation}): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -73,6 +74,15 @@ function Home(): JSX.Element {
             Java, etc.
           </Text>
           <Text style={styles.sicParvisMagnaStyle}>Sic Parvis Magna</Text>
+
+          <View style={styles.buttons}>
+            <Button title="Blogs" onPress={() => navigation.push('Blogs')} />
+            <Button
+              title="Projects"
+              onPress={() => navigation.push('Projects')}
+            />
+          </View>
+
           <Section title="About Me">
             Hello, I'm Pranshu, a sophomore CS undergrad at VIT, Chennai. I am a
             self-taught programmer. Started learning to code as a hobby rather
@@ -167,6 +177,7 @@ const styles = StyleSheet.create({
     color: '#01d293',
     fontSize: 24,
     paddingLeft: 20,
+    paddingBottom: 10,
   },
   techTitle: {
     fontSize: 24,
@@ -183,12 +194,19 @@ const styles = StyleSheet.create({
     rowGap: 10,
     columnGap: 12,
     flexWrap: 'wrap',
+    alignContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 20,
   },
   basicTextStyle: {
     padding: 20,
   },
   end: {
     paddingTop: 50,
+  },
+  buttons: {
+    display: 'flex',
+    gap: 20,
   },
 });
 
