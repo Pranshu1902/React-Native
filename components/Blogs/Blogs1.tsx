@@ -1,29 +1,24 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, Button} from 'react-native';
+import {Text, View, StyleSheet, Image, Button, Alert} from 'react-native';
 
-export function Blogs({navigation}): JSX.Element {
+export function Blog1({route, navigation}): JSX.Element {
+  const {title} = route.params;
   return (
     <View style={styles.page}>
-      <Text style={styles.heading}>Blogs</Text>
-      <Text style={styles.subHeading}>Some of my latests blogs</Text>
+      <Text style={styles.heading}>{title}</Text>
+      <Text style={styles.subHeading}>Text sent through pages</Text>
       <View style={styles.center}>
         <Image
           style={styles.image}
           resizeMode={'cover'}
-          source={require('../assets/blog.png/')}
+          source={require('../../assets/project.png/')}
         />
-        <Text style={styles.text}>
-          Artificial Intelligence has been around for a while now, especially
-          for times like now when chatGPT is on everyone’s mind. In this blog we
-          will explore how you can start your journey into the field of A.I.
-          History
-        </Text>
       </View>
       <Button
-        title="Read"
-        onPress={() => {
-          navigation.push('Blog1', {title: 'This is my first blog'});
-        }}
+        title="Learn More"
+        onPress={() =>
+          Alert.alert('Work in progress', 'This blog is not ready yet')
+        }
       />
     </View>
   );

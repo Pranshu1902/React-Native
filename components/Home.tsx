@@ -128,6 +128,7 @@ export function Home({navigation}): JSX.Element {
             />
           </View>
           <View style={styles.end} />
+          <Button title="Counter" onPress={() => navigation.push('Counter')} />
         </View>
       </ScrollView>
     </SafeAreaView>
