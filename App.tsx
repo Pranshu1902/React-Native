@@ -16,6 +16,7 @@ import {Blogs} from './components/Blogs';
 import {Projects} from './components/Project';
 import {Blog1} from './components/Blogs/Blogs1';
 import {Counter} from './components/Counter';
+import {Stepper} from './components/Stepper';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,15 @@ function DrawerNavigationContainer() {
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Projects" component={Projects} />
       <Drawer.Screen name="Blogs" component={Blogs} />
+    </Drawer.Navigator>
+  );
+}
+
+function StepperDrawerNavigationContainer() {
+  return (
+    <Drawer.Navigator initialRouteName="Stepper">
+      <Drawer.Screen name="Stepper" component={Stepper} />
+      <Drawer.Screen name="Home" component={Home} />
     </Drawer.Navigator>
   );
 }
@@ -89,13 +99,7 @@ function TabNavigatoionContainer() {
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      {/* <DrawerNavigationContainer /> */}
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Projects" component={Projects} />
-        <Drawer.Screen name="Blogs" component={Blogs} />
-        <Drawer.Screen name="Tabs" component={StackNavigationContainer} />
-      </Drawer.Navigator>
+      <StepperDrawerNavigationContainer />
     </NavigationContainer>
   );
 }
